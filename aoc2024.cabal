@@ -1,0 +1,41 @@
+cabal-version:      3.4
+name:               aoc2024
+version:            1.0.0.0
+synopsis:           Solutions for Advent of Code 2024
+license:            GPL-3.0-or-later
+license-file:       LICENSE
+author:             Laurent P. René de Cotret
+maintainer:         laurent.decotret@outlook.com
+copyright:          Laurent P. René de Cotret
+build-type:         Simple
+tested-with:        GHC==9.10.1
+
+common common-options
+    ghc-options:     -Wall
+                     -Wcompat
+                     -Widentities
+                     -Wincomplete-uni-patterns
+                     -Wincomplete-record-updates
+                     -Wredundant-constraints
+                     -fhide-source-paths
+                     -Wmissing-export-lists
+                     -Wpartial-fields
+    -- I'm throwing everything in here that I *might* need,
+    -- or that I have used in previous years.
+    build-depends:    attoparsec ^>=0.14
+                    , base ^>=4.20
+                    , bytestring ^>=0.12
+                    , containers ^>=0.7
+                    , filepath ^>=1.5
+                    , foldl ^>=1.4
+                    , hashable ^>=1.5
+                    , mtl ^>=2.3
+                    , text ^>=2.1
+                    , unordered-containers ^>=0.2
+                    , vector ^>=0.13
+    hs-source-dirs:   src
+    default-language: GHC2024
+
+executable day1
+    import:           common-options
+    main-is:          Day1.hs

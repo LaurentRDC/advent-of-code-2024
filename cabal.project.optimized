@@ -1,0 +1,11 @@
+import: cabal.project
+
+-- The cabal user guide recommends using `split-sections` 
+-- over `split-objs` whenever possible
+split-sections: True
+
+optimization: 2
+
+-- Required to optimize all dependencies as well
+package *
+    optimization: 2
