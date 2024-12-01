@@ -1,19 +1,16 @@
+import AOC (parseInputFileWith)
 import Control.Foldl qualified as Fold
 import Data.Attoparsec.Text
   ( Parser,
     decimal,
-    endOfInput,
     endOfLine,
     many1',
-    parseOnly,
     skipSpace,
   )
 import Data.List (sort)
 import Data.Map (Map)
 import Data.Map.Strict qualified as Map
-import Data.Maybe (fromMaybe, listToMaybe)
-import Data.Text.IO as TIO (readFile)
-import System.Environment (getArgs)
+import Data.Maybe (fromMaybe)
 
 parseInput :: Parser [(Int, Int)]
 parseInput = do
@@ -26,9 +23,7 @@ parseInput = do
 
 main :: IO ()
 main = do
-  Just input <- listToMaybe <$> getArgs
-
-  Right xs <- parseOnly (parseInput <* endOfInput) <$> TIO.readFile input
+  xs <- parseInputFileWith parseInput
 
   let (leftsUnsorted, rightsUnsorted) = unzip xs
       lefts = sort leftsUnsorted

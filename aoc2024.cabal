@@ -20,9 +20,22 @@ common common-options
                      -fhide-source-paths
                      -Wmissing-export-lists
                      -Wpartial-fields
+    hs-source-dirs:   src
+    default-language: GHC2024
+
+library
+    import:           common-options
+    build-depends:    attoparsec ^>=0.14
+                    , base ^>=4.20
+                    , text ^>=2.1
+    hs-source-dirs:   lib
+    exposed-modules:  AOC
+
+common dependencies
     -- I'm throwing everything in here that I *might* need,
     -- or that I have used in previous years.
-    build-depends:    attoparsec ^>=0.14
+    build-depends:    aoc2024
+                    , attoparsec ^>=0.14
                     , base ^>=4.20
                     , bytestring ^>=0.12
                     , containers ^>=0.7
@@ -33,9 +46,7 @@ common common-options
                     , text ^>=2.1
                     , unordered-containers ^>=0.2
                     , vector ^>=0.13
-    hs-source-dirs:   src
-    default-language: GHC2024
 
 executable day1
-    import:           common-options
+    import:           common-options, dependencies
     main-is:          Day1.hs
