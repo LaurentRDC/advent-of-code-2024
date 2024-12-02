@@ -50,3 +50,7 @@ common dependencies
 executable day1
     import:           common-options, dependencies
     main-is:          Day1.hs
+
+executable day2
+    import:           common-options, dependencies
+    main-is:          Day2.hs
