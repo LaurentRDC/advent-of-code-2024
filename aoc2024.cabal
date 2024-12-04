@@ -49,12 +49,13 @@ common dependencies
 
 executable day1
     import:           common-options, dependencies
-    main-is:          Day1.hs
+    main-is:          Day01.hs
 
 executable day2
     import:           common-options, dependencies
-    main-is:          Day2.hs
+    main-is:          Day02.hs
 
 executable day3
     import:           common-options, dependencies
-    main-is:          Day3.hs
+    main-is:          Day03.hs
+
