@@ -59,3 +59,6 @@ executable day3
     import:           common-options, dependencies
     main-is:          Day03.hs
 
+executable day4
+    import:           common-options, dependencies
+    main-is:          Day04.hs
