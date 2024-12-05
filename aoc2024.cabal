@@ -62,3 +62,7 @@ executable day3
 executable day4
     import:           common-options, dependencies
     main-is:          Day04.hs
+
+executable day5
+    import:           common-options, dependencies
+    main-is:          Day05.hs
