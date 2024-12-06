@@ -1,0 +1,21 @@
+import: cabal.project
+
+-- Run any executable you want to profile like so:
+-- > cabal run <myexe> --project=cabal.project.profiling -- <arguments> +RTS -pj
+--
+-- The resulting JSON file can be loaded into https://speedscope.app/
+--
+-- To profile memory, instead use the -hc command like so:
+-- > cabal run <myexe> -- <arguments> +RTS -hc
+-- And then generate a Postscript file using hp2ps
+-- > hp2ps -e8.0in <myexe>.hp
+profiling: True
+-- Profiling detail options include late and all-functions, amongst others
+profiling-detail: all-functions
+library-profiling: True
+executable-profiling: True
+
+-- Enable profiling for functions in dependencies as well
+package *
+    profiling: true
+    profiling-detail: all-functions

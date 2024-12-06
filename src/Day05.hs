@@ -73,4 +73,6 @@ part2 orders updates =
         -- Someone on Reddit noticed that the ordering rules are complete, not sparse.
         -- This means that we can have a comparison function like below which
         -- is complete.
+        -- Otherwise, I would have needed topological sorting to determine an absolute
+        -- ordering between pages
         f left right = if MkOrder left right `Set.member` orders then LT else GT
