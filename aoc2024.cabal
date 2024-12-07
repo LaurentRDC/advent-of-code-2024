@@ -70,3 +70,7 @@ executable day5
 executable day6
     import:           common-options, dependencies
     main-is:          Day06.hs
+
+executable day7
+    import:           common-options, dependencies
+    main-is:          Day07.hs
