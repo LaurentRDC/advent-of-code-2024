@@ -82,3 +82,7 @@ executable day8
 executable day9
     import:           common-options, dependencies
     main-is:          Day09.hs
+
+executable day10
+    import:           common-options, dependencies
+    main-is:          Day10.hs
