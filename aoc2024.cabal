@@ -42,6 +42,7 @@ common dependencies
                     , filepath ^>=1.5
                     , foldl ^>=1.4
                     , hashable ^>=1.5
+                    , MemoTrie ^>=0.6
                     , mtl ^>=2.3
                     , text ^>=2.1
                     , unordered-containers ^>=0.2
@@ -86,3 +87,7 @@ executable day9
 executable day10
     import:           common-options, dependencies
     main-is:          Day10.hs
+
+executable day11
+    import:           common-options, dependencies
+    main-is:          Day11.hs
