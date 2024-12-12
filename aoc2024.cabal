@@ -91,3 +91,7 @@ executable day10
 executable day11
     import:           common-options, dependencies
     main-is:          Day11.hs
+
+executable day12
+    import:           common-options, dependencies
+    main-is:          Day12.hs
