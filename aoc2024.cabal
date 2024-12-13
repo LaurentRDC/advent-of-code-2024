@@ -95,3 +95,8 @@ executable day11
 executable day12
     import:           common-options, dependencies
     main-is:          Day12.hs
+
+executable day13
+    import:           common-options, dependencies
+    main-is:          Day13.hs
+    build-depends:    hmatrix ^>=0.20

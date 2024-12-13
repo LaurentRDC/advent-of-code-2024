@@ -13,3 +13,9 @@ If compilation with performance optimizations is required, use a different proje
 ```console
 cabal run day<N> --project-file=cabal.project.optimized -- <inputs>
 ```
+
+Note that BLAS and LAPACK are required for certain days involving linear algebra. On Ubuntu:
+
+```console
+sudo apt-get install libblas-dev liblapack-dev
+```
