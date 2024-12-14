@@ -100,3 +100,7 @@ executable day13
     import:           common-options, dependencies
     main-is:          Day13.hs
     build-depends:    hmatrix ^>=0.20
+
+executable day14
+    import:           common-options, dependencies
+    main-is:          Day14.hs
