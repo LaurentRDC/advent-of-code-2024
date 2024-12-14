@@ -1,6 +1,13 @@
 {-# LANGUAGE LambdaCase #-}
 
-module AOC (parseInputFileWith) where
+module AOC
+  ( parseInputFileWith,
+    Row (getRow),
+    row,
+    Col (getCol),
+    col,
+  )
+where
 
 import Data.Attoparsec.Text
   ( Parser,
@@ -25,3 +32,15 @@ parseInputFileWith parser = do
         >>= \case
           Left errmsg -> error errmsg
           Right result -> pure result
+
+newtype Row = MkRow {getRow :: Int}
+  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
+
+row :: Int -> Row
+row = MkRow
+
+newtype Col = MkCol {getCol :: Int}
+  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
+
+col :: Int -> Col
+col = MkCol

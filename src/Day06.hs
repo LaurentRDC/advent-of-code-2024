@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import AOC (Col, Row)
 import Data.Bifunctor (second)
 import Data.List (unfoldr)
 import Data.Set (Set)
@@ -19,12 +20,6 @@ main = do
 
 newtype Obstacles
   = MkObstacles (Set Position)
-
-newtype Row = MkRow Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
-
-newtype Col = MkCol Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
 
 parseInput :: Text -> (Maybe Position, Obstacles)
 parseInput txt =
@@ -58,8 +53,8 @@ part1 guardStartPos obstacles =
   where
 
 path :: Position -> Obstacles -> Set Position
-path guardStartPos (MkObstacles obstacles )
-  = Set.fromList $ unfoldr advance (guardStartPos, MkDirection (-1, 0))
+path guardStartPos (MkObstacles obstacles) =
+  Set.fromList $ unfoldr advance (guardStartPos, MkDirection (-1, 0))
   where
     maxRow = Set.findMax $ Set.map (\(MkPosition (r, _)) -> r) obstacles
     maxCol = Set.findMax $ Set.map (\(MkPosition (_, c)) -> c) obstacles
@@ -81,9 +76,9 @@ part2 guardStartPos (MkObstacles obstacles) =
   length $
     filter hasLoop $
       [ MkObstacles (pos `Set.insert` obstacles)
-      -- We only evaluate new obstacles where the guard
-      -- would have walked
-      | pos <- Set.toList (path guardStartPos (MkObstacles obstacles))
+      | -- We only evaluate new obstacles where the guard
+        -- would have walked
+        pos <- Set.toList (path guardStartPos (MkObstacles obstacles))
       ]
   where
     maxRow = Set.findMax $ Set.map (\(MkPosition (r, _)) -> r) obstacles

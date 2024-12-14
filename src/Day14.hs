@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import AOC (parseInputFileWith)
+import AOC (Col, Row, parseInputFileWith)
 import Control.Foldl qualified as Fold
 import Data.Attoparsec.Text
 import Data.Map.Strict qualified as Map
@@ -70,12 +70,6 @@ part2 robots = 1 + (fst $ Vector.minimumOn snd $ Vector.indexed $ Vector.unfoldr
     cycle_ vs
       | Vector.null vs = Vector.empty
       | otherwise = Vector.tail vs <> Vector.singleton (Vector.head vs)
-
-newtype Row = MkRow Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
-
-newtype Col = MkCol Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
 
 type Position = (Row, Col)
 

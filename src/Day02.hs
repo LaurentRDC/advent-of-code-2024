@@ -30,11 +30,11 @@ isReportSafeWithDampener :: Report -> Bool
 isReportSafeWithDampener vs =
   -- The simplest way is to brute-force. No need or time to optimize.
   --
-  -- Another way to do this would be to accumulate a 'Map Int Bool' 
+  -- Another way to do this would be to accumulate a 'Map Int Bool'
   -- result, rather than simply 'Bool', where the result at index I
   -- ignored the input at index I. This way, each report could be
   -- traversed only once.
-  
+
   -- Note: the initial (-1) index isn't in `vs`, so the first
   --       element of the list is `vs` unchanged.
   any isReportSafe $ [deleteAt ix vs | ix <- [-1 .. length vs - 1]]

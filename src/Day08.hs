@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import AOC (Col, Row)
 import Data.Map (Map)
 import Data.Map.Strict qualified as Map
 import Data.Set (Set)
@@ -19,12 +20,6 @@ main = do
 
 newtype AntennaFrequency = MkAntennaFrequency Char
   deriving (Eq, Ord, Show)
-
-newtype Row = MkRow Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
-
-newtype Col = MkCol Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
 
 type Position = (Row, Col)
 

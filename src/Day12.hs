@@ -1,3 +1,4 @@
+import AOC (Col, Row)
 import Control.Exception (assert)
 import Data.Foldable qualified as Foldable
 import Data.List.NonEmpty (NonEmpty (..))
@@ -17,10 +18,6 @@ main :: IO ()
 main = do
   [inputFile] <- getArgs
   regs <- regions <$> parseInput <$> Text.readFile inputFile
-
-  -- let sds = Seq.filter (\(c, _) -> c == 'A') $ fmap (\reg@(MkRegion c _) -> (c, sides $ fences reg)) regs
-  -- -- let sds = fmap (length . sides . fences) regs
-  -- print ( sds)
 
   putStrLn $ "[Part 1] " <> show (part1 regs)
   putStrLn $ "[Part 2] " <> show (part2 regs)
@@ -46,12 +43,6 @@ perimeter :: Region -> Int
 perimeter (MkRegion _ xs) = sum $ map (\p -> 4 - numTouching p) (Set.toAscList xs)
   where
     numTouching pos = Set.size (Set.filter (\p2 -> pos `distFrom` p2 == 1) xs)
-
-newtype Row = MkRow Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
-
-newtype Col = MkCol Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
 
 type Position = (Row, Col)
 

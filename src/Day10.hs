@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -Wno-incomplete-uni-patterns #-}
 
+import AOC (Col, Row)
 import Data.Char (digitToInt)
 import Data.Map (Map)
 import Data.Map.Strict qualified as Map
@@ -60,12 +61,6 @@ pathsToNine topomap start = Tree.unfoldTree go start
             (r, c - 1),
             (r, c + 1)
           ]
-
-newtype Row = MkRow Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
-
-newtype Col = MkCol Int
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
 
 type Position = (Row, Col)
 
