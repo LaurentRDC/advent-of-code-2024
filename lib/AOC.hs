@@ -34,13 +34,19 @@ parseInputFileWith parser = do
           Right result -> pure result
 
 newtype Row = MkRow {getRow :: Int}
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
+  deriving (Eq, Ord, Enum, Bounded, Real, Num, Integral)
+
+instance Show Row where
+  show (MkRow r) = "R" <> show r
 
 row :: Int -> Row
 row = MkRow
 
 newtype Col = MkCol {getCol :: Int}
-  deriving (Show, Eq, Ord, Enum, Bounded, Real, Num, Integral)
+  deriving (Eq, Ord, Enum, Bounded, Real, Num, Integral)
+
+instance Show Col where
+  show (MkCol r) = "C" <> show r
 
 col :: Int -> Col
 col = MkCol

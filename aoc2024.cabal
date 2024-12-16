@@ -104,3 +104,7 @@ executable day13
 executable day14
     import:           common-options, dependencies
     main-is:          Day14.hs
+
+executable day15
+    import:           common-options, dependencies
+    main-is:          Day15.hs
