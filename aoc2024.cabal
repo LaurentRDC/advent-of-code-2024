@@ -108,3 +108,8 @@ executable day14
 executable day15
     import:           common-options, dependencies
     main-is:          Day15.hs
+
+executable day16
+    import:           common-options, dependencies
+    main-is:          Day16.hs
+    build-depends:    search-algorithms ^>=0.3
