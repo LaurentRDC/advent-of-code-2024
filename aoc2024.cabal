@@ -119,3 +119,8 @@ executable day17
     main-is:          Day17.hs
     build-depends:    microlens-mtl ^>=0.2
                     , microlens-th ^>=0.4
+
+executable day18
+    import:           common-options, dependencies
+    main-is:          Day18.hs
+    build-depends:    search-algorithms ^>=0.3          
