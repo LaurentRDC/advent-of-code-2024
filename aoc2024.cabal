@@ -123,4 +123,9 @@ executable day17
 executable day18
     import:           common-options, dependencies
     main-is:          Day18.hs
-    build-depends:    search-algorithms ^>=0.3          
+    build-depends:    search-algorithms ^>=0.3
+
+executable day19
+    import:           common-options, dependencies
+    main-is:          Day19.hs
+    build-depends:    search-algorithms ^>=0.3
